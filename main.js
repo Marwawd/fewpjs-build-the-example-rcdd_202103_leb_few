@@ -1,22 +1,42 @@
+
+  
 // Defining text characters for the empty and full hearts for you to use later.
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
-// Your JavaScript code goes here!
-let like=document.getElementById("like-glyph")
-// console.log(mimicServerCall())
-// let modal=document.getElementById('modal');
-like.addEventListener("click", function(){
-  let l=mimicServerCall()
-  like.innerHTML=FULL_HEART;})
-console.log("ff");
-//document.getElementsByTagName("h2")[0].classList.remove("hidden");
-let l=mimicServerCall();
-console.log("tada");
+const glyphStates = {
+  "♡": "♥",
+  "♥": "♡"
+};
 
-console.log(l);
-// l.then(console.log("gg"));
-// l.catch(document.getElementsByTagName("h2")[0].classList.remove("hidden"));
+const colorStates = {
+  "red" : "",
+  "": "red"
+};
+
+const articleHearts = document.querySelectorAll(".like-glyph");
+
+function likeCallback(e) {
+  const heart = e.target;
+  mimicServerCall("bogusUrl")
+   //OR: mimicServerCall("bogusUrl", {forceFailure: true})
+    .then(function(serverMessage){
+       heart.innerText = glyphStates[heart.innerText];
+       heart.style.color = colorStates[heart.style.color];
+    })
+    .catch(function(error) {
+      const modal = document.getElementById("modal");
+      modal.className = "";
+      modal.innerText = error;
+      setTimeout(() =>  modal.className = "hidden", 3000);
+    });
+}
+
+for (const glyph of articleHearts) {
+  glyph.addEventListener("click", likeCallback);
+}
+
+
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
 //------------------------------------------------------------------------------
@@ -24,7 +44,7 @@ console.log(l);
 function mimicServerCall(url="http://mimicServer.example.com", config={}) {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
-      let isRandomFailure = Math.random() < .2
+      const isRandomFailure = Math.random() < .2
       if (isRandomFailure) {
         reject("Random server error. Try again.");
       } else {
