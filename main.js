@@ -22,7 +22,7 @@ function likeCallback(e) {
 
     .then(function(){
        heart.innerText = FULL_HEART;
-       heart.style.color = orange;
+       heart.style.color = colorStates[heart.style.color];
     })
     .catch(function(error) {
       const modal = document.getElementById("modal");
