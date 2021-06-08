@@ -20,7 +20,7 @@ function likeCallback(e) {
   const heart = e.target;
   mimicServerCall("bogusUrl")
    //OR: mimicServerCall("bogusUrl", {forceFailure: true})
-    .then(function(serverMessage){
+    .then(function(){
        heart.innerText = glyphStates[heart.innerText];
        heart.style.color = colorStates[heart.style.color];
     })
