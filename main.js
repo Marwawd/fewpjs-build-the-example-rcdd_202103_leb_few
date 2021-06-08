@@ -24,6 +24,10 @@ function likeCallback(e) {
       if(heart.innerText===EMPTY_HEART){
        heart.innerText = FULL_HEART;
        heart.style.color = "red";}
+       else {
+         heart.innerText = EMPTY_HEART;
+         heart.style.color = "";
+       }
     })
     .catch(function(error) {
       const modal = document.getElementById("modal");
