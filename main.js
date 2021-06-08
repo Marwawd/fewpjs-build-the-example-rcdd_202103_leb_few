@@ -3,6 +3,7 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+console.log(mimicServerCall())
 let modal=document.getElementById('modal');
 console.log("ff");
 //document.getElementsByTagName("h2")[0].classList.remove("hidden");
