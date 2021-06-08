@@ -4,17 +4,7 @@
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
-const glyphStates = {
-  "♡": "♥",
-  "♥": "♡"
-};
-
-const colorStates = {
-  "red" : "",
-  "": "red"
-};
-
-const articleHearts = document.querySelectorAll(".like-glyph");
+const hearticons = document.querySelectorAll(".like-glyph");
 
 function likeCallback(e) {
   const heart = e.target;
@@ -37,7 +27,7 @@ function likeCallback(e) {
     });
 }
 
-for (const glyph of articleHearts) {
+for (const glyph of hearticons) {
   glyph.addEventListener("click", likeCallback);
 }
 
