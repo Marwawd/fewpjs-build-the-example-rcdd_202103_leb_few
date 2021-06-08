@@ -21,8 +21,9 @@ function likeCallback(e) {
   mimicServerCall("bogusUrl")
 
     .then(function(){
+      if(heart.innerText===EMPTY_HEART){
        heart.innerText = FULL_HEART;
-       heart.style.color = "red";
+       heart.style.color = "red";}
     })
     .catch(function(error) {
       const modal = document.getElementById("modal");
