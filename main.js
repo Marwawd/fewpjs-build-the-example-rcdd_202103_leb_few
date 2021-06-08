@@ -3,10 +3,15 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
+let modal=document.getElementById('modal');
+console.log("ff");
+//document.getElementsByTagName("h2")[0].classList.remove("hidden");
+let l=mimicServerCall();
+console.log("tada");
 
-
-
-
+console.log(l);
+l.then(console.log("gg"));
+l.catch(document.getElementsByTagName("h2")[0].classList.remove("hidden"));
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
 //------------------------------------------------------------------------------
