@@ -19,10 +19,10 @@ const articleHearts = document.querySelectorAll(".like-glyph");
 function likeCallback(e) {
   const heart = e.target;
   mimicServerCall("bogusUrl")
-   //OR: mimicServerCall("bogusUrl", {forceFailure: true})
-    .then(function(serverMessage){
-       heart.innerText = glyphStates[heart.innerText];
-       heart.style.color = colorStates[heart.style.color];
+
+    .then(function(){
+       heart.innerText = FULL_HEART;
+       heart.style.color = red;
     })
     .catch(function(error) {
       const modal = document.getElementById("modal");
