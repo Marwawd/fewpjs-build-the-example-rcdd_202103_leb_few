@@ -3,16 +3,20 @@ const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
 // Your JavaScript code goes here!
-console.log(mimicServerCall())
-let modal=document.getElementById('modal');
+let like=document.getElementById("like-glyph")
+// console.log(mimicServerCall())
+// let modal=document.getElementById('modal');
+like.addEventListener("click", function(){
+  let l=mimicServerCall()
+  like.innerHTML=FULL_HEART;})
 console.log("ff");
 //document.getElementsByTagName("h2")[0].classList.remove("hidden");
 let l=mimicServerCall();
 console.log("tada");
 
 console.log(l);
-l.then(console.log("gg"));
-l.catch(document.getElementsByTagName("h2")[0].classList.remove("hidden"));
+// l.then(console.log("gg"));
+// l.catch(document.getElementsByTagName("h2")[0].classList.remove("hidden"));
 //------------------------------------------------------------------------------
 // Don't change the code below: this function mocks the server response
 //------------------------------------------------------------------------------
