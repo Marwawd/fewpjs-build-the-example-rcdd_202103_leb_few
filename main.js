@@ -6,7 +6,7 @@ const FULL_HEART = '♥'
 
 const hearticons = document.querySelectorAll(".like-glyph");
 
-function likeCallback(e) {
+function likef(e) {
   const heart = e.target;
   mimicServerCall("bogusUrl")
 
@@ -28,7 +28,7 @@ function likeCallback(e) {
 }
 
 for (const glyph of hearticons) {
-  glyph.addEventListener("click", likeCallback);
+  glyph.addEventListener("click", likef);
 }
 
 
